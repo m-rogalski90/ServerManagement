@@ -1,0 +1,13 @@
+﻿[Unit]
+Description=HehKurwele.ServerManagement
+
+[Service]
+WorkingDirectory=/var/HehKurwele/ServerManagement
+Restart=always
+RestartSec=10
+SyslogIdentifier=HehKurwele.ServerManagement
+Type=notify
+ExecStart=/usr/bin/dotnet /var/HehKurwele/HehKurwele.ServerManagement.dll
+
+[Install]
+WantedBy=multi-user.target
