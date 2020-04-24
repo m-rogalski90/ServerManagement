@@ -54,7 +54,7 @@ namespace HehKurwele.ServerManagement.Client.ViewModel
 			BaseMessage response = ServerConnection.SendRequest(
 				new AuthenticationRequest(mAuthenticationModel.Username, (passwordBox as PasswordBox).Password)
 			);
-			if (response is AuthenticationResponse)
+			if (response is AuthenticatedResponse)
 			{
 				RaiseLoginCompletedEvent();
 			}

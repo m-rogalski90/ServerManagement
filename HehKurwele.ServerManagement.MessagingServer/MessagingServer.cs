@@ -5,23 +5,7 @@ using System.Net.Sockets;
 
 namespace HehKurwele.ServerManagement.MessagingServer
 {
-	/// <summary>
-	/// MessagingServer - taki serwerek do ogarniania requestow z urządzeń podłączonych.
-	/// Idea jest taka, że mamy określony zestaw requestów i responsów dla każdej mozliwej akcji
-	/// całą komunikację będziemy musieli zaczynać od "PING-PONG" ( chyba ) żeby zobaczyć czy 
-	/// serwer jest alive. Jeżeli nie dostaniemy odpowiedzi PONG to znaczy że serwer zdechł i trzeba 
-	/// poczekać aż się znowu uruchomi.. taki health check dla tego serwera
-	/// Później trzeba by zrobic autentykację .. jak? chuj nie wiem i na razie mnie to jebie..
-	/// 
-	/// Po autentykacji użytkownik powinien dostać jakiś token, klucz, identyfikator czy inne coś
-	/// każdy request powinien zawierać ten klucz autentykacyjny i sam klucz powinien być odświeżany 
-	/// co jakiś czas albo nie wiem .. trzeba będzie śledzić czy przyszedł z tego samego socketa..? 
-	/// 
-	/// Requesty powinny zawierać coś co wymaga większych uprawnień coś jak "wystartujSerwisX_Request"
-	/// każde inne takie jak health check powinny być użyte w innym typie aplikacji :
-	/// HehKurwele.ServerManagement.MonitoringServer ( nazwa może ulec zmianie bo.. tak! )
-	/// </summary>
-	class MessagingServer
+	public class MessagingServer
 	{
 		private Socket mSocket;
 		private List<MessageClient> mClientsList;

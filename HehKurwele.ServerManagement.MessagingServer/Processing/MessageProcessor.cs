@@ -3,11 +3,13 @@ using HehKuerwle.ServerManagement.Commons.Messaging.Requests;
 using HehKuerwle.ServerManagement.Commons.Messaging.Responses;
 using System;
 
-namespace HehKurwele.ServerManagement.MessagingServer
+namespace HehKurwele.ServerManagement.MessagingServer.Processing
 {
-	internal static class MessageProcessor
+	internal class MessageProcessor
 	{
-		public static BaseMessage ProcessRequest(BaseMessage request)
+		private string AuthenticationToken;
+
+		public BaseMessage ProcessRequest(BaseMessage request)
 		{
 			MessageType requestType = request.Type;
 			switch (requestType)
@@ -20,11 +22,15 @@ namespace HehKurwele.ServerManagement.MessagingServer
 					AuthenticationRequest authenticationRequest = request as AuthenticationRequest;
 					if (authenticationRequest is null) return new EmptyResponse();
 
-					if (authenticationRequest.Username == "NoSiema" && authenticationRequest.Password == "NoSiema")
+					bool authenticated = AuthenticationProcessor.TryAuthenticate(
+						authenticationRequest.Username, 
+						authenticationRequest.Password,
+						out string authenticationToken
+					);
+					if (authenticated)
 					{
-						return new AuthenticationResponse("NoSiema");
+						return new AuthenticatedResponse(authenticationRequest.Username, authenticationToken);
 					}
-
 					break;
 
 				case MessageType.START_SERVICE:

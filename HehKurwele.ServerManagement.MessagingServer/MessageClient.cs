@@ -1,5 +1,6 @@
 ﻿using HehKuerwle.ServerManagement.Commons.Messaging;
 using HehKuerwle.ServerManagement.Commons.Messaging.Serialization;
+using HehKurwele.ServerManagement.MessagingServer.Processing;
 using System;
 using System.Net.Sockets;
 using System.Threading;
@@ -11,6 +12,7 @@ namespace HehKurwele.ServerManagement.MessagingServer
 		public event EventHandler ClientDisconnected;
 
 		private readonly Socket mSocket;
+		private readonly MessageProcessor mMessageProcessor;
 		private Thread mWorkerThread;
 
 		public bool IsConnected => Connected();
@@ -19,6 +21,7 @@ namespace HehKurwele.ServerManagement.MessagingServer
 		{
 			mSocket = socket;
 			mWorkerThread = new Thread(WorkerJob);
+			mMessageProcessor = new MessageProcessor();
 		}
 
 		private bool Connected()
@@ -42,7 +45,7 @@ namespace HehKurwele.ServerManagement.MessagingServer
 				if (DataAvailable)
 				{
 					BaseMessage message = MessageSerializer.Deserialize(this);
-					BaseMessage response = MessageProcessor.ProcessRequest(message);
+					BaseMessage response = mMessageProcessor.ProcessRequest(message);
 					byte[] responseBuffer = MessageSerializer.Serialize(response);
 					Write(responseBuffer);
 				}
@@ -54,7 +57,6 @@ namespace HehKurwele.ServerManagement.MessagingServer
 		{
 			EventHandler handler = ClientDisconnected;
 			handler?.Invoke(this, EventArgs.Empty);
-			Console.WriteLine($"Client {mSocket.ToString()} disconnected.");
 		}
 	}
 }

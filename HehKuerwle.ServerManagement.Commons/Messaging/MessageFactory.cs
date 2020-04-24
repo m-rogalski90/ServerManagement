@@ -19,7 +19,7 @@ namespace HehKuerwle.ServerManagement.Commons.Messaging
 			mMessagesTypeMappings.Add(MessageType.PONG, typeof(PongResponse));
 			mMessagesTypeMappings.Add(MessageType.OK, typeof(OkResponse));
 			mMessagesTypeMappings.Add(MessageType.EMPTY, typeof(EmptyResponse));
-			mMessagesTypeMappings.Add(MessageType.AUTHENTICATED, typeof(AuthenticationResponse));
+			mMessagesTypeMappings.Add(MessageType.AUTHENTICATED, typeof(AuthenticatedResponse));
 		}
 
 		public static Type GetMessageType(MessageType type)
