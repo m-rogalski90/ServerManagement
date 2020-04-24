@@ -1,5 +1,6 @@
 ﻿using HehKurwele.ServerManagement.Networking;
 using System;
+using System.Threading;
 
 namespace HehKurwele.ServerManagement
 {
@@ -13,7 +14,10 @@ namespace HehKurwele.ServerManagement
 			s.Start();
 			while(s.IsRunning)
 			{
-				//..
+				if (!Thread.Yield())
+				{
+					Thread.SpinWait(100);
+				}
 			}
 			s.Stop();
 		}

@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HehKuerwle.ServerManagement
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HehKurwele.ServerManagement.Client", "HehKurwele.ServerManagement.Client\HehKurwele.ServerManagement.Client.csproj", "{B57A91BB-EDE7-4AF3-9414-A250AFE44CC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HehKurwele.ServerManagement.Tests", "HehKurwele.ServerManagement.Tests\HehKurwele.ServerManagement.Tests.csproj", "{8B33107F-CC59-4BD9-8190-1650130F047D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HehKurwele.ServerManagement.Tests", "HehKurwele.ServerManagement.Tests\HehKurwele.ServerManagement.Tests.csproj", "{8B33107F-CC59-4BD9-8190-1650130F047D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HehKurwele.ServerManagement.MessagingServer", "HehKurwele.ServerManagement.MessagingServer\HehKurwele.ServerManagement.MessagingServer.csproj", "{EE564241-DE54-41C5-A933-090F719E8498}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8B33107F-CC59-4BD9-8190-1650130F047D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B33107F-CC59-4BD9-8190-1650130F047D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B33107F-CC59-4BD9-8190-1650130F047D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE564241-DE54-41C5-A933-090F719E8498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE564241-DE54-41C5-A933-090F719E8498}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE564241-DE54-41C5-A933-090F719E8498}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE564241-DE54-41C5-A933-090F719E8498}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
