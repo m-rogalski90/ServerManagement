@@ -1,4 +1,4 @@
-﻿namespace HehKuerwle.ServerManagement.Commons.Messaging.Requests
+﻿namespace HehKurwele.ServerManagement.Commons.Messaging.Request
 {
 	public sealed class AuthenticationRequest : BaseMessage
 	{

@@ -1,13 +1,10 @@
-﻿using HehKuerwle.ServerManagement.Commons.Messaging;
-using HehKuerwle.ServerManagement.Commons.Messaging.Serialization;
-using System;
-using System.IO;
+﻿using System;
 using System.Net.Sockets;
 using System.Threading;
 
-namespace HehKurwele.ServerManagement.Networking
+namespace HehKurwele.ServerManagement.ServerBase
 {
-	internal abstract class BaseClient : NetworkStream
+	public abstract class BaseClient : NetworkStream
 	{
 		public event EventHandler ClientDisconnected;
 

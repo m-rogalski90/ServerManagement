@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Sockets;
 using System.IO;
+using System.Net.Sockets;
 using System.Text;
 
-namespace HehKuerwle.ServerManagement.Commons.Messaging.Serialization
+namespace HehKurwele.ServerManagement.Commons.Messaging
 {
-	// should be enough for this class..
-	public static class MessageSerializer
+	public static class Serializer
 	{
 		public static BaseMessage Deserialize(NetworkStream netStream)
 		{
@@ -29,7 +28,7 @@ namespace HehKuerwle.ServerManagement.Commons.Messaging.Serialization
 			byte[] buffer = new byte[len];
 			netStream.Read(buffer, 0, len);
 			string jsonMessage = Encoding.UTF8.GetString(buffer);
-			Type requestType = MessageFactory.GetMessageType((MessageType)type);
+			Type requestType = MessageTypeMapping.GetMessageType((MessageType)type);
 			using TextReader reader = new StringReader(jsonMessage);
 			return (BaseMessage)Newtonsoft.Json.JsonSerializer.Create().Deserialize(reader, requestType);
 		}

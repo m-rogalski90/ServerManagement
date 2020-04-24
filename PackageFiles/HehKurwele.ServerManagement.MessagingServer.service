@@ -1,0 +1,13 @@
+﻿[Unit]
+Description=HehKurwele.ServerManagement.MessagingServer
+
+[Service]
+WorkingDirectory=/var/HehKurwele/ServerManagement
+Restart=always
+RestartSec=10
+SyslogIdentifier=HehKurwele.ServerManagement.MessagingServer
+Type=notify
+ExecStart=/usr/bin/dotnet /var/HehKurwele/HehKurwele.ServerManagement.MessagingServer.dll
+
+[Install]
+WantedBy=multi-user.target

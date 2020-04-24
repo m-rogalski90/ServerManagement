@@ -1,4 +1,4 @@
-﻿namespace HehKuerwle.ServerManagement.Commons.Messaging
+﻿namespace HehKurwele.ServerManagement.Commons.Messaging
 {
 	public enum MessageType : byte
 	{
@@ -7,8 +7,6 @@
 		PONG = 0x02,
 		AUTHENTICATE = 0x03,
 		AUTHENTICATED = 0x04,
-		GET_CONFIGURATION = 0x05,
-		START_SERVICE = 0x10,
-		OK = 0x13,
+		OK = 0x05,
 	}
 }

@@ -1,5 +1,4 @@
-﻿using HehKuerwle.ServerManagement.Commons.Messaging;
-using HehKuerwle.ServerManagement.Commons.Messaging.Serialization;
+﻿using HehKurwele.ServerManagement.Commons.Messaging;
 using System.Net;
 using System.Net.Sockets;
 
@@ -25,10 +24,10 @@ namespace HehKurwele.ServerManagement.Client.Networking
 
 		public static BaseMessage SendRequest(BaseMessage request)
 		{
-			byte[] requestBuffer = MessageSerializer.Serialize(request);
+			byte[] requestBuffer = Serializer.Serialize(request);
 			netStream.Write(requestBuffer, 0, requestBuffer.Length);
 			while (!netStream.DataAvailable) { }
-			return MessageSerializer.Deserialize(netStream);
+			return Serializer.Deserialize(netStream);
 		}
 	}
 }

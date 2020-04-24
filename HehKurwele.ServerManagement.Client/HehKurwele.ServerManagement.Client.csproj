@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HehKuerwle.ServerManagement.Commons\HehKuerwle.ServerManagement.Commons.csproj" />
+    <ProjectReference Include="..\HehKuerwle.ServerManagement.Commons\HehKurwele.ServerManagement.Commons.csproj" />
+    <ProjectReference Include="..\HehKurwele.ServerManagement.Commons.Messaging\HehKurwele.ServerManagement.Commons.Messaging.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HehKuerwle.ServerManagement.Commons.Messaging.Responses
+namespace HehKurwele.ServerManagement.Commons.Messaging.Response
 {
 	public sealed class PongResponse : BaseMessage
 	{

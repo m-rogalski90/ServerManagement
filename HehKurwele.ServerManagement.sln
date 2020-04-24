@@ -3,15 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HehKurwele.ServerManagement", "HehKurwele.ServerManagement\HehKurwele.ServerManagement.csproj", "{11C4B6AE-F63A-4C38-AEE4-66E7D21AB826}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HehKuerwle.ServerManagement.Commons", "HehKuerwle.ServerManagement.Commons\HehKuerwle.ServerManagement.Commons.csproj", "{70B7AECC-A718-4C8D-80F3-A39CF88152E2}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HehKurwele.ServerManagement.Client", "HehKurwele.ServerManagement.Client\HehKurwele.ServerManagement.Client.csproj", "{B57A91BB-EDE7-4AF3-9414-A250AFE44CC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HehKurwele.ServerManagement.Commons", "HehKuerwle.ServerManagement.Commons\HehKurwele.ServerManagement.Commons.csproj", "{70B7AECC-A718-4C8D-80F3-A39CF88152E2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HehKurwele.ServerManagement.Tests", "HehKurwele.ServerManagement.Tests\HehKurwele.ServerManagement.Tests.csproj", "{8B33107F-CC59-4BD9-8190-1650130F047D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HehKurwele.ServerManagement.MessagingServer", "HehKurwele.ServerManagement.MessagingServer\HehKurwele.ServerManagement.MessagingServer.csproj", "{EE564241-DE54-41C5-A933-090F719E8498}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServerSide", "ServerSide", "{64D37EAD-7B23-4A03-B1FD-E42DA13A4E44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HehKurwele.ServerManagement.ServerBase", "HehKurwele.ServerManagement.ServerBase\HehKurwele.ServerManagement.ServerBase.csproj", "{F16414D3-4D04-48C7-86D5-3F96B2EC22ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HehKurwele.ServerManagement.MonitoringServer", "HehKurwele.ServerManagement.MonitoringServer\HehKurwele.ServerManagement.MonitoringServer.csproj", "{C10A7017-14C9-4B2D-9A45-9AD88046E6B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InstallationFiles", "InstallationFiles", "{2289CAD5-B695-4DDC-8659-1F5AC43F6E55}"
+	ProjectSection(SolutionItems) = preProject
+		PackageFiles\HehKurwele.ServerManagement.MessagingServer.service = PackageFiles\HehKurwele.ServerManagement.MessagingServer.service
+		PackageFiles\HehKurwele.ServerManagement.MonitoringServer.service = PackageFiles\HehKurwele.ServerManagement.MonitoringServer.service
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commons", "Commons", "{002E9A49-20F4-4E70-8899-4500690FE43D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D6FAB73E-B4B7-4483-B455-DE895D7E3188}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Devices", "Devices", "{BC46CCB6-54AA-4596-BF65-DD1F1809028A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HehKurwele.ServerManagement.Commons.Messaging", "HehKurwele.ServerManagement.Commons.Messaging\HehKurwele.ServerManagement.Commons.Messaging.csproj", "{1D6200AE-E1AC-4FCA-B995-E9C07E199490}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,18 +35,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{11C4B6AE-F63A-4C38-AEE4-66E7D21AB826}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{11C4B6AE-F63A-4C38-AEE4-66E7D21AB826}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{11C4B6AE-F63A-4C38-AEE4-66E7D21AB826}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{11C4B6AE-F63A-4C38-AEE4-66E7D21AB826}.Release|Any CPU.Build.0 = Release|Any CPU
 		{70B7AECC-A718-4C8D-80F3-A39CF88152E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{70B7AECC-A718-4C8D-80F3-A39CF88152E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70B7AECC-A718-4C8D-80F3-A39CF88152E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70B7AECC-A718-4C8D-80F3-A39CF88152E2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B57A91BB-EDE7-4AF3-9414-A250AFE44CC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B57A91BB-EDE7-4AF3-9414-A250AFE44CC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B57A91BB-EDE7-4AF3-9414-A250AFE44CC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B57A91BB-EDE7-4AF3-9414-A250AFE44CC3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8B33107F-CC59-4BD9-8190-1650130F047D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8B33107F-CC59-4BD9-8190-1650130F047D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B33107F-CC59-4BD9-8190-1650130F047D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,9 +47,29 @@ Global
 		{EE564241-DE54-41C5-A933-090F719E8498}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE564241-DE54-41C5-A933-090F719E8498}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE564241-DE54-41C5-A933-090F719E8498}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F16414D3-4D04-48C7-86D5-3F96B2EC22ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F16414D3-4D04-48C7-86D5-3F96B2EC22ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F16414D3-4D04-48C7-86D5-3F96B2EC22ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F16414D3-4D04-48C7-86D5-3F96B2EC22ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C10A7017-14C9-4B2D-9A45-9AD88046E6B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C10A7017-14C9-4B2D-9A45-9AD88046E6B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C10A7017-14C9-4B2D-9A45-9AD88046E6B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C10A7017-14C9-4B2D-9A45-9AD88046E6B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D6200AE-E1AC-4FCA-B995-E9C07E199490}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D6200AE-E1AC-4FCA-B995-E9C07E199490}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D6200AE-E1AC-4FCA-B995-E9C07E199490}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D6200AE-E1AC-4FCA-B995-E9C07E199490}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{70B7AECC-A718-4C8D-80F3-A39CF88152E2} = {002E9A49-20F4-4E70-8899-4500690FE43D}
+		{8B33107F-CC59-4BD9-8190-1650130F047D} = {D6FAB73E-B4B7-4483-B455-DE895D7E3188}
+		{EE564241-DE54-41C5-A933-090F719E8498} = {64D37EAD-7B23-4A03-B1FD-E42DA13A4E44}
+		{F16414D3-4D04-48C7-86D5-3F96B2EC22ED} = {64D37EAD-7B23-4A03-B1FD-E42DA13A4E44}
+		{C10A7017-14C9-4B2D-9A45-9AD88046E6B5} = {64D37EAD-7B23-4A03-B1FD-E42DA13A4E44}
+		{1D6200AE-E1AC-4FCA-B995-E9C07E199490} = {002E9A49-20F4-4E70-8899-4500690FE43D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {663C8E5E-CABD-4A54-A0BE-5EA3EEC613F6}

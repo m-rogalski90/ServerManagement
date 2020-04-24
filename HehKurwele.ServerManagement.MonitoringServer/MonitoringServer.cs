@@ -1,18 +1,18 @@
-﻿using System;
+﻿using HehKurwele.ServerManagement.ServerBase;
+using System;
 using System.Net.Sockets;
-using HehKurwele.ServerManagement.ServerBase;
 
-namespace HehKurwele.ServerManagement.MessagingServer
+namespace HehKurwele.ServerManagement.MonitoringServer
 {
-	public sealed class MessagingServer : BaseServer
+	public sealed class MonitoringServer : BaseServer
 	{
-		public MessagingServer(int port) : base(port) { }
+		public MonitoringServer(int port) : base(port) { }
 
 		protected override void OnClientDisconnected(object sender, EventArgs e)
 		{
-			if (sender is MessageClient)
+			if (sender is MonitoringClient)
 			{
-				MessageClient client = sender as MessageClient;
+				MonitoringClient client = sender as MonitoringClient;
 				mClientsList.Remove(client);
 				client.Dispose();
 			}
@@ -20,7 +20,7 @@ namespace HehKurwele.ServerManagement.MessagingServer
 
 		protected override void OnClientConnected(Socket clientSocket)
 		{
-			MessageClient client = new MessageClient(clientSocket);
+			MonitoringClient client = new MonitoringClient(clientSocket);
 			client.ClientDisconnected += OnClientDisconnected;
 			mClientsList.Add(client);
 			client.HandleClient();
@@ -30,7 +30,7 @@ namespace HehKurwele.ServerManagement.MessagingServer
 		{
 			// get port from cmdargs maybe? or whatever ENVVars something.. 
 			int port = 8000;
-			MessagingServer server = new MessagingServer(port);
+			MonitoringServer server = new MonitoringServer(port);
 			server.Listen();
 			server.Shutdown();
 		}

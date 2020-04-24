@@ -1,13 +1,13 @@
-﻿using HehKuerwle.ServerManagement.Commons.Messaging;
-using HehKuerwle.ServerManagement.Commons.Messaging.Requests;
-using HehKuerwle.ServerManagement.Commons.Messaging.Responses;
+﻿using HehKurwele.ServerManagement.Commons.Messaging;
+using HehKurwele.ServerManagement.Commons.Messaging.Request;
+using HehKurwele.ServerManagement.Commons.Messaging.Response;
 using System;
 
 namespace HehKurwele.ServerManagement.MessagingServer.Processing
 {
 	internal class MessageProcessor
 	{
-		private string AuthenticationToken;
+		private string mAuthenticationToken;
 
 		public BaseMessage ProcessRequest(BaseMessage request)
 		{
@@ -19,8 +19,7 @@ namespace HehKurwele.ServerManagement.MessagingServer.Processing
 					return new PongResponse(DateTime.Now);
 
 				case MessageType.AUTHENTICATE:
-					AuthenticationRequest authenticationRequest = request as AuthenticationRequest;
-					if (authenticationRequest is null) return new EmptyResponse();
+					if (!(request is AuthenticationRequest authenticationRequest)) return new EmptyResponse();
 
 					bool authenticated = AuthenticationProcessor.TryAuthenticate(
 						authenticationRequest.Username, 
@@ -29,17 +28,8 @@ namespace HehKurwele.ServerManagement.MessagingServer.Processing
 					);
 					if (authenticated)
 					{
+						mAuthenticationToken = authenticationToken;
 						return new AuthenticatedResponse(authenticationRequest.Username, authenticationToken);
-					}
-					break;
-
-				case MessageType.START_SERVICE:
-					StartServiceRequest startService = request as StartServiceRequest;
-					if (startService is null) return new EmptyResponse();
-
-					if (startService.AuthKey == "NoSiema" && startService.ServiceId == 1337)
-					{
-						return new OkResponse("Działa dobrze mordeczko!");
 					}
 					break;
 			}

@@ -1,62 +1,32 @@
-﻿using HehKuerwle.ServerManagement.Commons.Messaging;
-using HehKuerwle.ServerManagement.Commons.Messaging.Serialization;
+﻿using HehKurwele.ServerManagement.Commons.Messaging;
 using HehKurwele.ServerManagement.MessagingServer.Processing;
-using System;
+using HehKurwele.ServerManagement.ServerBase;
 using System.Net.Sockets;
-using System.Threading;
 
 namespace HehKurwele.ServerManagement.MessagingServer
 {
-	class MessageClient : NetworkStream
+	internal sealed class MessageClient : BaseClient
 	{
-		public event EventHandler ClientDisconnected;
-
-		private readonly Socket mSocket;
 		private readonly MessageProcessor mMessageProcessor;
-		private Thread mWorkerThread;
 
-		public bool IsConnected => Connected();
-
-		public MessageClient(Socket socket) : base(socket, true)
+		public MessageClient(Socket socket) : base(socket) 
 		{
-			mSocket = socket;
-			mWorkerThread = new Thread(WorkerJob);
 			mMessageProcessor = new MessageProcessor();
 		}
 
-		private bool Connected()
-		{
-			try
-			{
-				return !(mSocket.Poll(1, SelectMode.SelectRead) && mSocket.Available == 0);
-			}
-			catch (SocketException) { return false; }
-		}
-
-		public void HandleClient()
-		{
-			mWorkerThread.Start();
-		}
-
-		private void WorkerJob()
+		protected override void WorkerJob()
 		{
 			while (IsConnected)
 			{
 				if (DataAvailable)
 				{
-					BaseMessage message = MessageSerializer.Deserialize(this);
+					BaseMessage message = Serializer.Deserialize(this);
 					BaseMessage response = mMessageProcessor.ProcessRequest(message);
-					byte[] responseBuffer = MessageSerializer.Serialize(response);
+					byte[] responseBuffer = Serializer.Serialize(response);
 					Write(responseBuffer);
 				}
 			}
 			RaiseClientDisconnected();
-		}
-
-		protected void RaiseClientDisconnected()
-		{
-			EventHandler handler = ClientDisconnected;
-			handler?.Invoke(this, EventArgs.Empty);
 		}
 	}
 }

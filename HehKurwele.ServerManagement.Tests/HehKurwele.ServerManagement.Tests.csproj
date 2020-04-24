@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HehKuerwle.ServerManagement.Commons\HehKuerwle.ServerManagement.Commons.csproj" />
+    <ProjectReference Include="..\HehKuerwle.ServerManagement.Commons\HehKurwele.ServerManagement.Commons.csproj" />
   </ItemGroup>
 
 </Project>
