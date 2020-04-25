@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HehKuerwle.ServerManagement.Commons\HehKurwele.ServerManagement.Commons.csproj" />
+    <ProjectReference Include="..\HehKurwele.ServerManagement.ServerBase\HehKurwele.ServerManagement.ServerBase.csproj" />
   </ItemGroup>
 
 </Project>
